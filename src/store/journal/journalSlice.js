@@ -50,7 +50,6 @@ export const journalSlice = createSlice({
         return note;
       });
 
-      // todo: mostrar mensaje de actualizacion
       state.messageSaved = `${action.payload.title}, actualizada correctamente`;
     },
 
@@ -66,7 +65,6 @@ export const journalSlice = createSlice({
       state.notes = state.notes.filter((note) => note.id !== action.payload);
     },
 
-    // NECESITAMOS ESTABLECER LAS IMAGENES QUE SUBIMOS A LA NOTA ACTIVA, YA QUE ESTA ES LA QUE ESTOY MODIFICANDO...
     setPhotosToActiveNote: (state, action) => {
       state.active.imageUrls = [...state.active.imageUrls, ...action.payload];
       state.isSaving = false;

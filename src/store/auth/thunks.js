@@ -18,14 +18,11 @@ export const startGoogleSignIn = () => {
     dispatch(checkingCredentials());
 
     const result = await signInWithGoogle();
-    // AQUI PODRIAMOS COLOCAR UN CONSOLE.LOG DEL RESULT PARA VER LOS DATOS DEL USER
 
     if (!result.ok) return dispatch(logout(result.errorMessage));
     dispatch(login(result));
   };
 };
-
-// NOS CREAMOS UN NUEVO THUNK PARA EL FIREBASDE
 
 export const startCreatingUserWithEmailPassword = ({
   email,
@@ -35,7 +32,6 @@ export const startCreatingUserWithEmailPassword = ({
   return async (dispatch) => {
     dispatch(checkingCredentials());
 
-    // DESESTRUCTURACION DE LO QUE VIENE DE LA RESPUESTA
     const { ok, uid, photoURL, errorMessage } =
       await registerUserWithEmailPassword({
         email,
@@ -43,15 +39,13 @@ export const startCreatingUserWithEmailPassword = ({
         displayName,
       });
 
-    if (!ok) return dispatch(logout({ errorMessage })); // SI ALGO SALE MAL, VOY A MANDAR A LLAMAR EL LOGOUT Y LE VOY A MANDAR EL ERROR MESSAGE COMO PAYLOAD
+    if (!ok) return dispatch(logout({ errorMessage }));
 
     dispatch(login({ uid, displayName, email, photoURL }));
   };
 };
 
 export const startLoginWithEmailPassword = ({ email, password }) => {
-  // se va a despachar el logout o el login
-
   return async (dispatch) => {
     dispatch(checkingCredentials());
     const result = await loginWithEmailPassword({

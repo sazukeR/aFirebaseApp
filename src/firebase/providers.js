@@ -1,4 +1,3 @@
-// EN ESTE ARCHIVO ESTARAN LOS PROVEEDORES DE AUTENTICACION
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -13,7 +12,7 @@ const googleProvider = new GoogleAuthProvider();
 export const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(firebaseAuth, googleProvider);
-    // const credentials = GoogleAuthProvider.credentialFromResult(result); // con esto podemos ver las credenciales
+
     const { displayName, email, photoURL, uid } = result.user;
     return {
       ok: true,
@@ -40,7 +39,6 @@ export const registerUserWithEmailPassword = async ({
   displayName,
 }) => {
   try {
-    // OCUPAMOS LLEGAR A FIREBASE
     console.log({ email, password, displayName });
 
     const resp = await createUserWithEmailAndPassword(
@@ -50,11 +48,7 @@ export const registerUserWithEmailPassword = async ({
     );
     const { uid, photoURL } = resp.user;
 
-    //console.log(resp);
-
-    // TODO: actualizar el displayName en firebase
-
-    await updateProfile(firebaseAuth.currentUser, { displayName }); // CUANDO REGISTRO ESTO AUTOMATICAMENTE LOGUEA
+    await updateProfile(firebaseAuth.currentUser, { displayName });
 
     return {
       ok: true,
@@ -70,8 +64,6 @@ export const registerUserWithEmailPassword = async ({
 };
 
 export const loginWithEmailPassword = async ({ email, password }) => {
-  // signInWithEmailAndPassword
-
   try {
     const resp = await signInWithEmailAndPassword(
       firebaseAuth,

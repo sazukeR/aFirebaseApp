@@ -5,7 +5,6 @@ import { IconButton } from "@mui/material";
 import { AddOutlined } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { startNewNote } from "../../store/journal";
-// CON <TypoGraphy /> SE UTILIZA LA FUENTE DE NUESTRO THEME
 
 export const JournalPage = () => {
   const { isSaving, active } = useSelector((state) => state.journal);
@@ -13,23 +12,14 @@ export const JournalPage = () => {
   const dispatch = useDispatch();
 
   const onClickNewNote = () => {
- 
     dispatch(startNewNote());
   };
 
   return (
     <>
       <JournalLayout>
-        {/*         <Typography>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet et
-          magnam obcaecati odit error ipsam quae recusandae tenetur repellat
-          atque.
-        
-        </Typography> */}
         {!!active ? <NoteView /> : <NothingSelectedView />}
 
-        {/*  <NothingSelectedView /> */}
-        {/*  <NoteView /> */}
         <IconButton
           onClick={onClickNewNote}
           disabled={isSaving}

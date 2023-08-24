@@ -10,12 +10,7 @@ export const useCheckAuth = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // FIREBASE NOS OFRECE UNA FORMA DE MONITOREAR LOS CAMBIOS QUE UN USUARIO VA A TENER
-    // CUANDO EL ESTADO DE LA AUTENTICACION CAMBIA... ONAUTHSTATECHANGED
-
     onAuthStateChanged(firebaseAuth, async (user) => {
-      // console.log(user);
-
       if (!user) return dispatch(logout());
       const { uid, email, displayName, photoURL } = user;
       dispatch(login({ uid, email, displayName, photoURL }));

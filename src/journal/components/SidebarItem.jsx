@@ -17,7 +17,6 @@ export const SidebarItem = ({ title = "", body, id, date, imageUrls = [] }) => {
     dispatch(setActiveNote({ title, body, id, date, imageUrls }));
   };
 
-  // ESTE USEMEMO LO UTILIZAREMOS PARA EVITAR TITULOS MUY LARGOS, QUE NO LUZCAN BIEN EN NUESTRO SIDEBAR
   const newTitle = useMemo(() => {
     return title.length > 17 ? title.substring(0, 17) + "..." : title;
   }, [title]);

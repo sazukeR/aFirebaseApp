@@ -21,14 +21,14 @@ export const authSlice = createSlice({
       state.photoUrl = payload.photoUrl;
       state.errorMessage = null;
     },
-    // EN EL LOGOUT LO QUE HARIA ES COLOCAR COMO SE ENCUENTRA EL ESTADO DE MI SESION ACTUALMENTE
+
     logout: (state, { payload }) => {
       state.status = "not-authenticated"; //"checking" 'not-authenticated', 'authenticated'
       state.uid = null;
       state.email = null;
       state.displayName = null;
       state.photoUrl = null;
-      state.errorMessage = payload?.errorMessage; // SE LE PUSO UN SIGNO DE INTERROGACION PARA VER SI VIENE EL ERROR MESSAGE
+      state.errorMessage = payload?.errorMessage;
     },
     checkingCredentials: (state) => {
       state.status = "checking";

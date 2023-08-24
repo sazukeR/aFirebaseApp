@@ -17,10 +17,6 @@ import {
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.css";
 
-// SE TUVO QUE COLOCAR UN NUEVO USEEFECT EN EL USEFORM PARA PODER CAMBIAR LA NOTA SELECCIONADA
-// SI EL NOTE CAMBIA ENTONCES DEBEMOS ACTUALIZAR LA REFERENCIA
-// CUANDO EL INICIALFORM CAMBIA (LA NOTA AXCTIVA) ENTONCES QUIERO QUE SE DISPARE EL EFECTO
-
 export const NoteView = () => {
   const dispatch = useDispatch();
 
@@ -28,7 +24,7 @@ export const NoteView = () => {
     active: note,
     messageSaved,
     isSaving,
-  } = useSelector((state) => state.journal); // LE CAMBIAMOS EL NOMBRE DE LA PROPIEDAD ACTIVE POR 'NOTE'  PARA QUE SE ENTIENDA MEJOR QUE ESTAMOS HABLANDO DE LA NOTA ACTIVA
+  } = useSelector((state) => state.journal);
 
   const { body, title, date, onInputChange, formState } = useForm(note);
 

@@ -14,8 +14,6 @@ export const AppRouter = () => {
 
   return (
     <Routes>
-      {/* CUANDO TERMINO DE REALIZAR LA AUTENTICACION SE SIGUE MOSTRANDO EL LOGIN, Y NO DEBERIA YA QUE ESTAMOS AUTHENTICADOS */}
-      {/*     ESTO ES COMO DEFINIR RUTAS PRIVADAS Y PUBLICAS PORQUE EL LOGIN SOLO ME VA A APARECER SI NO ESTOY AUTENTICADO, EN CAMBIO, SI ESTOY AUTENTICADO ME APARECE LA PAGINA COMO TAL */}
       {status === "authenticated" ? (
         <Route path="/*" element={<JournalRoutes />} />
       ) : (
@@ -23,12 +21,6 @@ export const AppRouter = () => {
       )}
 
       <Route path="/*" element={<Navigate to="/auth/login" />} />
-
-      {/* Login y Registro */}
-      {/*       <Route path="/auth/*" element={<AuthRoutes />} /> */}
-
-      {/* JournalApp */}
-      {/*    <Route path="/*" element={<JournalRoutes />} /> */}
     </Routes>
   );
 };
