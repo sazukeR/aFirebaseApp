@@ -4,7 +4,11 @@ React application easy to configure, add notes, upload images with cludinary and
 
 The project is easy to model so you can add and remove components at your convenience, you just have to configure your console in firebase
 
+<<<<<<< HEAD
 ## Tools
+=======
+## Herramientas
+>>>>>>> 43b3ede5bf6051403b5d41f3e8ef192e62843533
 
 <img src="https://github.com/sazukeR/devicon/blob/master/icons/firebase/firebase-plain-wordmark.svg" width="20" height="20" style="border-radius: 50%; display: inlinek;"> <span>Firebase</span>
 
